@@ -47,9 +47,9 @@ class _BookViewsBodyState extends State<SplashViewsBody>
   }
 
   void slidingtext() {
-    animate = AnimationController(vsync: this, duration: Duration(seconds: 3));
+    animate = AnimationController(vsync: this, duration: Duration(seconds: 2));
     animater = Tween<Offset>(
-      begin: Offset(0, 25),
+      begin: Offset(0, 10),
       end: Offset.zero,
     ).animate(animate);
 
@@ -57,8 +57,8 @@ class _BookViewsBodyState extends State<SplashViewsBody>
   }
 
   void NavigitToHome() {
-    Future.delayed(Duration(seconds: 4), () {
-      Get.to(HomeViews(), transition: Transition.fadeIn);
+    Future.delayed(Duration(seconds: 3), () {
+      Get.to(() => HomeViews(), transition: Transition.fadeIn);
     });
   }
 }

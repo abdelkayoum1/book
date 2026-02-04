@@ -9,7 +9,6 @@ class CusomterListViewsImage extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2.7 / 4,
       child: Container(
-        margin: EdgeInsets.all(7),
         decoration: BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.all(Radius.circular(12)),

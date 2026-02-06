@@ -1,9 +1,7 @@
-import 'package:book/Features/home/presentation/views/home_views.dart';
 import 'package:book/constant_images.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewsBody extends StatefulWidget {
   const SplashViewsBody({super.key});
@@ -58,7 +56,8 @@ class _BookViewsBodyState extends State<SplashViewsBody>
 
   void NavigitToHome() {
     Future.delayed(Duration(seconds: 3), () {
-      Get.to(() => HomeViews(), transition: Transition.fadeIn);
+      GoRouter.of(context).push('/home_views');
+      //  Get.to(() => HomeViews(), transition: Transition.fadeIn);
     });
   }
 }

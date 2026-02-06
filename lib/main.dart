@@ -1,7 +1,9 @@
+import 'package:book/Features/home/presentation/views/home_views.dart';
+import 'package:book/Features/home/utile/app_route.dart';
 import 'package:book/constant.dart';
 import 'package:book/Splash/splash_views.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRoute.router,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
         ), //add font family
       ),
 
-      home: SplashViews(),
+      // home: SplashViews(),
     );
   }
 }

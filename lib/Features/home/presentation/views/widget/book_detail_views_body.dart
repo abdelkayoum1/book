@@ -1,4 +1,6 @@
+import 'package:book/Features/home/presentation/views/widget/Feature_list_views.dart';
 import 'package:book/Features/home/presentation/views/widget/bookdetailviewsAppbar.dart';
+import 'package:book/Features/home/presentation/views/widget/costumerListViews.dart';
 import 'package:book/Features/home/utile/style.dart';
 import 'package:book/constant_images.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ class BookDetailViewsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         children: [
@@ -15,27 +18,10 @@ class BookDetailViewsBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
             child: BookdetailviewsAppbar(),
           ),
-          /*
-              SizedBox(
-                height: 200,
-                child: AspectRatio(
-                  aspectRatio: 2.7 / 4,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Colors.red,
-                      image: DecorationImage(
-                        image: AssetImage(Assets.logoo),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              */
-          Image.asset(
-            Assets.logoo,
-            height: MediaQuery.of(context).size.height * .35,
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * .40),
+            child: CusomterListViewsImage(),
           ),
         ],
       ),

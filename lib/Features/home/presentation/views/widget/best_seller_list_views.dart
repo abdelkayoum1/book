@@ -16,9 +16,11 @@ class _ListTileBestState extends State<BestsallerListItem> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .30,
+          height: MediaQuery.of(context).size.height * .20,
+          // height: 100,
           child: AspectRatio(
             aspectRatio: 2.7 / 4,
             child: Container(
@@ -40,8 +42,9 @@ class _ListTileBestState extends State<BestsallerListItem> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
+                //  height: MediaQuery.of(context).size.height,
                 child: Text(
-                  'Harry Potter and the Goblet of FireHarry Potter and the GobletGoblet',
+                  'Harry Potter and the Goblet of FireHarry Potter and the GobletGobletobletGobletobletGobletobletGobletvvvobletGobletobletGobletobletGobletobletGobletobletGobletobletGobletobletGobletobletGobletobletGoblet',
                   maxLines: isisvisible ? null : 2,
                   overflow: isisvisible
                       ? TextOverflow.visible
@@ -80,13 +83,15 @@ class _ListTileBestState extends State<BestsallerListItem> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+
                   Expanded(child: SizedBox()),
                   Row(
                     children: [
                       Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
                       SizedBox(width: 6.3),
                       Text('${4.8} ', style: Styles.textStyle16),
-                      SizedBox(width: 5),
+
+                      //SizedBox(width: 5),
                       Text(
                         ' (2390)',
                         style: Styles.textStyle14.copyWith(

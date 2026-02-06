@@ -6,12 +6,15 @@ class CustomerAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Image.asset(Assets.logo, height: 20),
-        IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 32)),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(Assets.logo, height: 20),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 32)),
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:book/constant_images.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomerAppBar extends StatelessWidget {
   const CustomerAppBar({super.key});
@@ -12,7 +13,12 @@ class CustomerAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset(Assets.logo, height: 20),
-          IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 32)),
+          IconButton(
+            onPressed: () {
+              GoRouter.of(context).push('/searchviewsappbarbook');
+            },
+            icon: Icon(Icons.search, size: 32),
+          ),
         ],
       ),
     );

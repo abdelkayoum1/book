@@ -4,6 +4,7 @@ import 'package:book/Features/home/presentation/views/widget/costumerListViews.d
 import 'package:book/Features/home/utile/style.dart';
 import 'package:book/constant_images.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookDetailViewsBody extends StatelessWidget {
   const BookDetailViewsBody({super.key});
@@ -22,6 +23,28 @@ class BookDetailViewsBody extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * .40),
             child: CusomterListViewsImage(),
+          ),
+          SizedBox(height: 43),
+          Text('The Jungle Book', style: Styles.textStyle14),
+
+          Text(
+            'Rudyard Kipling',
+            style: Styles.textStyle14.copyWith(color: Color(0xff707070)),
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
+              SizedBox(width: 6.3),
+              Text('${4.8} ', style: Styles.textStyle16),
+
+              SizedBox(height: 5),
+              Text(
+                ' (2390)',
+                style: Styles.textStyle14.copyWith(color: Color(0xff707070)),
+              ),
+            ],
           ),
         ],
       ),

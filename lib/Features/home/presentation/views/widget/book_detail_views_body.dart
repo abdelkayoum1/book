@@ -1,4 +1,5 @@
 import 'package:book/Features/home/presentation/views/widget/Feature_list_views.dart';
+import 'package:book/Features/home/presentation/views/widget/book_actions.dart';
 import 'package:book/Features/home/presentation/views/widget/bookdetailviewsAppbar.dart';
 import 'package:book/Features/home/presentation/views/widget/costumerListViews.dart';
 import 'package:book/Features/home/utile/style.dart';
@@ -21,7 +22,7 @@ class BookDetailViewsBody extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * .40),
+            padding: EdgeInsets.symmetric(horizontal: width * .45),
             child: CusomterListViewsImage(),
           ),
           SizedBox(height: 43),
@@ -46,6 +47,8 @@ class BookDetailViewsBody extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 10),
+          BookActions(),
         ],
       ),
     );

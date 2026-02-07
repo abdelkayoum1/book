@@ -1,3 +1,4 @@
+import 'package:book/Features/home/utile/app_route.dart';
 import 'package:book/constant_images.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,7 @@ class CustomerAppBar extends StatelessWidget {
           Image.asset(Assets.logo, height: 20),
           IconButton(
             onPressed: () {
-              GoRouter.of(context).push('/searchviewsappbarbook');
+              GoRouter.of(context).push(AppRoute.ksearcgviewsappbarbook);
             },
             icon: Icon(Icons.search, size: 32),
           ),

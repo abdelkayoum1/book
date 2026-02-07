@@ -1,4 +1,4 @@
-import 'package:book/Features/search/presentation/views/search_views_app_bar_book.dart';
+import 'package:book/Features/search/presentation/views/widjet/search_views_app_bar_book.dart';
 import 'package:flutter/material.dart';
 
 class SearchViews extends StatelessWidget {
@@ -6,6 +6,6 @@ class SearchViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SearchViewsAppBarBook());
+    return SafeArea(child: Scaffold(body: SearchViewsAppBarBook()));
   }
 }

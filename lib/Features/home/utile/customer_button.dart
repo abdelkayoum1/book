@@ -30,24 +30,5 @@ class CustomerButton extends StatelessWidget {
         ),
       ),
     );
-    /*
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            'Free',
-            style: Styles.textStyle18.copyWith(color: Colors.black),
-          ),
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.white,
-
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(12),
-                bottomRight: Radius.circular(12),
-              ),
-            ),
-          ),
-        );
-      */
   }
 }

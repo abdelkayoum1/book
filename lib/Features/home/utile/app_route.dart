@@ -1,7 +1,7 @@
 import 'package:book/Features/home/presentation/views/home_views.dart';
 import 'package:book/Features/home/presentation/views/widget/book_detail_views_body.dart';
-import 'package:book/Features/search/presentation/views/search_views_app_bar_book.dart';
-import 'package:book/Features/search/presentation/views/widjet/search_views.dart';
+import 'package:book/Features/search/presentation/views/widjet/search_views_app_bar_book.dart';
+import 'package:book/Features/search/search_views.dart';
 import 'package:book/Splash/splash_views.dart';
 import 'package:go_router/go_router.dart';
 

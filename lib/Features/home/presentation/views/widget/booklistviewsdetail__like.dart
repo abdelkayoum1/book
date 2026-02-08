@@ -7,8 +7,9 @@ class BookListViewsdetail__like extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .15,
+      height: MediaQuery.of(context).size.height * 0.30,
       child: ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 7,
         itemBuilder: (context, index) {

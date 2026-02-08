@@ -14,6 +14,7 @@ class CusomterListViewsImage extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(12)),
           image: DecorationImage(
             fit: BoxFit.fill,
+
             image: AssetImage(Assets.logoo),
           ),
         ),

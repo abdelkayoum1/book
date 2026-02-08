@@ -59,7 +59,7 @@ class BookDetailViewsBody extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 BookActions(),
-                Expanded(child: SizedBox(height: 50)),
+                SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Align(

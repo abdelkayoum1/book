@@ -5,6 +5,7 @@ import 'package:book/Splash/splash_views.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:equatable/equatable.dart';
 
 void main() {
   runApp(const MyApp());

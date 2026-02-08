@@ -1,5 +1,5 @@
-import 'package:book/Features/home/utile/app_route.dart';
-import 'package:book/Features/home/utile/style.dart';
+import 'package:book/Features/core/utile/app_route.dart';
+import 'package:book/Features/core/utile/style.dart';
 import 'package:book/constant.dart';
 import 'package:book/constant_images.dart';
 import 'package:flutter/material.dart';

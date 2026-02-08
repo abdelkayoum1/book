@@ -1,5 +1,5 @@
 import 'package:book/Features/home/presentation/views/home_views.dart';
-import 'package:book/Features/home/utile/app_route.dart';
+import 'package:book/Features/core/utile/app_route.dart';
 import 'package:book/constant.dart';
 import 'package:book/Splash/splash_views.dart';
 import 'package:flutter/material.dart';

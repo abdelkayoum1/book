@@ -1,7 +1,6 @@
-import 'package:book/Features/core/utile/app_route.dart';
 import 'package:book/Features/search/presentation/views/widjet/costomersearchviewstext.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchViewsAppBarBook extends StatelessWidget {
   const SearchViewsAppBarBook({super.key});

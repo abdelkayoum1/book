@@ -1,8 +1,8 @@
 import 'package:book/Features/home/presentation/views/widget/Feature_list_views.dart';
 import 'package:book/Features/home/presentation/views/widget/bassesaller_List_views.dart';
-import 'package:book/Features/home/presentation/views/widget/best_seller_list_views.dart';
+
 import 'package:book/Features/home/presentation/views/widget/costumeAppbar.dart';
-import 'package:book/Features/core/utile/style.dart';
+import 'package:book/core/utile/style.dart';
 
 import 'package:flutter/material.dart';
 

@@ -6,26 +6,29 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeReposImpl implements HomeRepos {
-  final ApiService apiserver;
+  final ApiService apiService;
 
-  HomeReposImpl(this.apiserver);
+  HomeReposImpl(this.apiService);
   @override
-  Future<Either<Failure, List<BookModel>>> fetcheNewestBooks() async {
-    try {
-      var data = await apiserver.get(url: 'volumes?q=subject:Programming');
-      List<BookModel> list = [];
-      for (var item in data['items']) {
-        list.add(BookModel.fromJson(item));
-      }
-      return Right(list);
-    } on Exception catch (e) {
-      return Left(FailureServer());
-    }
+  Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() {
+    // TODO: implement fetchFeatureBooks
+    throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() {
-    // TODO: implement fetcheBestSellerBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetcheNewestBooks() async {
+    try {
+      var data = await apiService.get(url: 'volumes?q=subject:Programming');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(FailureServer.fromDioError(e));
+      }
+      return Left(FailureServer(error: e.toString()));
+    }
   }
 }

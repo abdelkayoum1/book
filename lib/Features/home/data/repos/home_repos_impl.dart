@@ -10,15 +10,31 @@ class HomeReposImpl implements HomeRepos {
 
   HomeReposImpl(this.apiService);
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() {
-    // TODO: implement fetchFeatureBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() async {
+    try {
+      var data = await apiService.get(
+        url: 'volumes?filter=free-ebooks&q=supject:Programming',
+      );
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(FailureServer.fromDioError(e));
+      }
+      return Left(FailureServer(error: e.toString()));
+    }
   }
 
   @override
   Future<Either<Failure, List<BookModel>>> fetcheNewestBooks() async {
     try {
-      var data = await apiService.get(url: 'volumes?q=subject:Programming');
+      // var data = await apiService.get(url: 'volumes?q=subject:Programming');
+      var data = await apiService.get(
+        url: 'volumes?filter=free-ebooks&Sorting=newest&q=supject:Programming',
+      );
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));

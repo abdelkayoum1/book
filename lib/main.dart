@@ -13,20 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => FeatureBooksCubit(Getit.get<HomeReposImpl>()),
-        ),
-        BlocProvider(
-          create: (context) =>
-              FeatureNewsetBookCubit(Getit.get<HomeReposImpl>()),
-        ),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  Setup();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,20 +22,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRoute.router,
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      // theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: colors,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              FeatureBooksCubit(HomeReposImpl(ApiService(dio: Dio()))),
+        ),
+        BlocProvider(
+          create: (context) =>
+              FeatureNewsetBookCubit(HomeReposImpl(ApiService(dio: Dio()))),
+        ),
+      ],
+      child: MaterialApp.router(
+        routerConfig: AppRoute.router,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        // theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: colors,
 
-        textTheme: GoogleFonts.montserratTextTheme(
-          ThemeData.dark().textTheme,
-        ), //add font family
+          textTheme: GoogleFonts.montserratTextTheme(
+            ThemeData.dark().textTheme,
+          ), //add font family
+        ),
+
+        // home: SplashViews(),
       ),
-
-      // home: SplashViews(),
     );
   }
 }

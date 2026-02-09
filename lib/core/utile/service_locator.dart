@@ -5,6 +5,6 @@ import 'package:get_it/get_it.dart';
 
 final Getit = GetIt.instance;
 
-void stup() {
+void Setup() {
   Getit.registerSingleton<HomeReposImpl>(HomeReposImpl(ApiService(dio: Dio())));
 }

@@ -14,11 +14,11 @@ final class FeatureBooksLoading extends FeatureBooksState {}
 final class FeatureBooksSucces extends FeatureBooksState {
   final List<BookModel> books;
 
-  const FeatureBooksSucces({required this.books});
+  const FeatureBooksSucces(this.books);
 }
 
 final class FeatureBooksFailure extends FeatureBooksState {
   final String errormessage;
 
-  const FeatureBooksFailure({required this.errormessage});
+  const FeatureBooksFailure(this.errormessage);
 }

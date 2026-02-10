@@ -2,6 +2,7 @@ import 'package:book/Features/home/presentation/views/widget/book_actions.dart';
 import 'package:book/Features/home/presentation/views/widget/bookdetailviewsAppbar.dart';
 import 'package:book/Features/home/presentation/views/widget/booklistviewsdetail__like.dart';
 import 'package:book/Features/home/presentation/views/widget/costumerListViews.dart';
+import 'package:book/constant_images.dart';
 import 'package:book/core/utile/style.dart';
 
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class BookDetailViewsBody extends StatelessWidget {
 
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * .35),
-                  child: CusomterListViewsImage(),
+                  child: CusomterListViewsImage(imageUrl: Assets.logoo),
                 ),
                 SizedBox(height: 43),
                 Text('The Jungle Book', style: Styles.textStyle14),

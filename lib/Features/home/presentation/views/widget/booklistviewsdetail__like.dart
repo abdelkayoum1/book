@@ -1,4 +1,5 @@
 import 'package:book/Features/home/presentation/views/widget/costumerListViews.dart';
+import 'package:book/constant_images.dart';
 import 'package:flutter/material.dart';
 
 class BookListViewsdetail__like extends StatelessWidget {
@@ -15,7 +16,7 @@ class BookListViewsdetail__like extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 7),
-            child: CusomterListViewsImage(),
+            child: CusomterListViewsImage(imageUrl: Assets.logoo),
           );
         },
       ),

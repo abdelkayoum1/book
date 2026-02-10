@@ -1,3 +1,4 @@
+import 'package:book/Features/home/data/model/book_model/book_model.dart';
 import 'package:book/core/utile/app_route.dart';
 import 'package:book/core/utile/style.dart';
 import 'package:book/constant.dart';
@@ -6,15 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-class BestsallerListItem extends StatefulWidget {
-  const BestsallerListItem({super.key});
-
-  @override
-  State<BestsallerListItem> createState() => _ListTileBestState();
-}
-
-class _ListTileBestState extends State<BestsallerListItem> {
+class BestsallerListItem extends StatelessWidget {
+  BestsallerListItem({super.key, required this.books});
+  final BookModel books;
   bool isisvisible = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,15 +26,8 @@ class _ListTileBestState extends State<BestsallerListItem> {
             // height: 100,
             child: AspectRatio(
               aspectRatio: 2.7 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  color: Colors.red,
-                  image: DecorationImage(
-                    image: AssetImage(Assets.logoo),
-                    fit: BoxFit.fill,
-                  ),
-                ),
+              child: Image.network(
+                books.volumeInfo.imageLinks!.thumbnail.toString(),
               ),
             ),
           ),
@@ -50,17 +40,18 @@ class _ListTileBestState extends State<BestsallerListItem> {
                   width: MediaQuery.of(context).size.width * .5,
                   //  height: MediaQuery.of(context).size.height,
                   child: Text(
-                    'Harry Potter and the Goblet of FireHarry Potter and the GobletGobletobletGobletobletGobletobletGobletvvvobletGobletobletGobletobletGobletobletGobletobletGobletobletGobletobletGobletobletGobletobletGoblet',
-                    maxLines: isisvisible ? null : 2,
-                    overflow: isisvisible
-                        ? TextOverflow.visible
-                        : TextOverflow.ellipsis,
+                    books.volumeInfo.title.toString(),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
 
                     style: Styles.textStyle20.copyWith(
                       fontFamily: kGtSectraFine,
                     ),
                   ),
                 ),
+
+                /*
+                
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -81,12 +72,15 @@ class _ListTileBestState extends State<BestsallerListItem> {
                               : TextStyle(color: Colors.greenAccent),
                         ),
                 ),
-
-                Text('J.K Rowling', style: Styles.textStyle14),
+                */
+                Text(
+                  books.volumeInfo.authors?.first ?? 'unknow',
+                  style: Styles.textStyle14,
+                ),
                 Row(
                   children: [
                     Text(
-                      '${19.99}',
+                      'FREE',
                       style: Styles.textStyle20.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -97,11 +91,14 @@ class _ListTileBestState extends State<BestsallerListItem> {
                       children: [
                         Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
                         SizedBox(width: 6.3),
-                        Text('${4.8} ', style: Styles.textStyle16),
-
-                        //SizedBox(width: 5),
                         Text(
-                          ' (2390)',
+                          (books.volumeInfo.averageRating.toString()),
+                          style: Styles.textStyle16,
+                        ),
+
+                        SizedBox(width: 5),
+                        Text(
+                          books.volumeInfo.ratingsCount.toString(),
                           style: Styles.textStyle14.copyWith(
                             color: Color(0xff707070),
                           ),

@@ -13,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  Setup();
+  setup();
   runApp(const MyApp());
 }
 
@@ -25,12 +25,18 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              FeatureBooksCubit(HomeReposImpl(ApiService(dio: Dio()))),
+          create: (context) {
+            final cubit = FeatureBooksCubit(getit.get<HomeReposImpl>());
+            cubit.fetchFeatureBooks();
+            return cubit;
+          },
         ),
         BlocProvider(
-          create: (context) =>
-              FeatureNewsetBookCubit(HomeReposImpl(ApiService(dio: Dio()))),
+          create: (context) {
+            final cubit = FeatureNewsetBookCubit(getit.get<HomeReposImpl>());
+            cubit.Feature_newset_book();
+            return cubit;
+          },
         ),
       ],
       child: MaterialApp.router(

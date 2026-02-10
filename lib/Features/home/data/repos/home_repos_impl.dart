@@ -13,7 +13,9 @@ class HomeReposImpl implements HomeRepos {
   Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiService.get(
-        url: 'volumes?filter=free-ebooks&q=supject:Programming',
+        url: 'volumes?filter=free-ebooks&q=Programming',
+        // url: 'volumes?q=programming',
+        // url: 'volumes?filter=free-ebooks&q=Programming',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -33,7 +35,7 @@ class HomeReposImpl implements HomeRepos {
     try {
       // var data = await apiService.get(url: 'volumes?q=subject:Programming');
       var data = await apiService.get(
-        url: 'volumes?filter=free-ebooks&Sorting=newest&q=supject:Programming',
+        url: 'volumes?filter=free-ebooks&q=supject:Programming',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {

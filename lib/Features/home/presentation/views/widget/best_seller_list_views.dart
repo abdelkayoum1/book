@@ -28,7 +28,7 @@ class BestsallerListItem extends StatelessWidget {
               aspectRatio: 2.4 / 4,
               child: Image.network(
                 fit: BoxFit.fill,
-                books.volumeInfo.imageLinks!.thumbnail.toString(),
+                books.volumeInfo.imageLinks.thumbnail.toString(),
               ),
             ),
           ),
@@ -99,7 +99,7 @@ class BestsallerListItem extends StatelessWidget {
 
                         SizedBox(width: 5),
                         Text(
-                          books.volumeInfo.ratingsCount.toString(),
+                          books.volumeInfo.pageCount.toString(),
                           style: Styles.textStyle14.copyWith(
                             color: Color(0xff707070),
                           ),

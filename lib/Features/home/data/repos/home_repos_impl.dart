@@ -19,7 +19,11 @@ class HomeReposImpl implements HomeRepos {
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
       return Right(books);
     } catch (e) {
@@ -35,11 +39,16 @@ class HomeReposImpl implements HomeRepos {
     try {
       // var data = await apiService.get(url: 'volumes?q=subject:Programming');
       var data = await apiService.get(
-        url: 'volumes?filter=free-ebooks&q=flutter',
+        url: 'volumes?filter=free-ebooks&q=computer science',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          print('error');
+          books.add(BookModel.fromJson(item));
+        }
       }
       return Right(books);
     } catch (e) {

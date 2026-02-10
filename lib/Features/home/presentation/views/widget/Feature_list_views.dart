@@ -29,11 +29,7 @@ class _FeatureBookListViewsState extends State<FeatureBookListViews> {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 7),
                   child: CusomterListViewsImage(
-                    imageUrl: state
-                        .books[index]
-                        .volumeInfo
-                        .imageLinks!
-                        .thumbnail
+                    imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail
                         .toString(),
                   ),
                 );

@@ -1,5 +1,6 @@
 import 'package:book/Features/home/presentation/manager/feature_newset_book_cubit/feature_newset_book_cubit.dart';
 import 'package:book/Features/home/presentation/views/widget/best_seller_list_views.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

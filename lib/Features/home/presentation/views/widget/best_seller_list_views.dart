@@ -22,11 +22,12 @@ class BestsallerListItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * .20,
+            height: MediaQuery.of(context).size.height * .25,
             // height: 100,
             child: AspectRatio(
-              aspectRatio: 2.7 / 4,
+              aspectRatio: 2.4 / 4,
               child: Image.network(
+                fit: BoxFit.fill,
                 books.volumeInfo.imageLinks!.thumbnail.toString(),
               ),
             ),

@@ -3,6 +3,7 @@ import 'package:book/core/utile/app_route.dart';
 import 'package:book/core/utile/style.dart';
 import 'package:book/constant.dart';
 import 'package:book/constant_images.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +17,7 @@ class BestsallerListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoute.kbookdetailhomeviews);
+        GoRouter.of(context).push(AppRoute.kbookdetail, extra: books);
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,9 +27,11 @@ class BestsallerListItem extends StatelessWidget {
             // height: 100,
             child: AspectRatio(
               aspectRatio: 2.4 / 4,
-              child: Image.network(
+              child: CachedNetworkImage(
+                errorWidget: (context, url, error) => Icon(Icons.error),
                 fit: BoxFit.fill,
-                books.volumeInfo.imageLinks.thumbnail.toString(),
+                imageUrl:
+                    books.volumeInfo.imageLinks?.thumbnail.toString() ?? '',
               ),
             ),
           ),

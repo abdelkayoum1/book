@@ -10,6 +10,7 @@ class FeatureNewsetBookCubit extends Cubit<FeatureNewsetBookState> {
 
   final HomeRepos homerepo;
 
+  // ignore: non_constant_identifier_names
   Future<void> Feature_newset_book() async {
     emit(FeatureNewsetBookloading());
     var resultat = await homerepo.fetcheNewestBooks();

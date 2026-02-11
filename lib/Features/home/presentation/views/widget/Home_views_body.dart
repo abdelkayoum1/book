@@ -2,9 +2,11 @@ import 'package:book/Features/home/presentation/views/widget/Feature_list_views.
 import 'package:book/Features/home/presentation/views/widget/bassesaller_List_views.dart';
 
 import 'package:book/Features/home/presentation/views/widget/costumeAppbar.dart';
+import 'package:book/core/utile/app_route.dart';
 import 'package:book/core/utile/style.dart';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewsBody extends StatelessWidget {
   const HomeViewsBody({super.key});

@@ -21,7 +21,7 @@ class HomeReposImpl implements HomeRepos {
       for (var item in data['items']) {
         try {
           books.add(BookModel.fromJson(item));
-        } on Exception catch (e) {
+        } catch (e) {
           books.add(BookModel.fromJson(item));
         }
       }
@@ -49,6 +49,32 @@ class HomeReposImpl implements HomeRepos {
           print('error');
           books.add(BookModel.fromJson(item));
         }
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(FailureServer.fromDioError(e));
+      }
+      return Left(FailureServer(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> similairefetchdetail({
+    required String category,
+  }) async {
+    try {
+      // var data = await apiService.get(url: 'volumes?q=subject:Programming');
+      var data = await apiService.get(
+        url: 'volumes?filter=free-ebooks&sorting=relevance&q=Programming',
+      );
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        try {
+          print(item);
+          print(data['item']);
+          books.add(BookModel.fromJson(item));
+        } catch (e) {}
       }
       return Right(books);
     } catch (e) {

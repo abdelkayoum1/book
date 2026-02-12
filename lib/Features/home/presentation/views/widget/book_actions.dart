@@ -1,4 +1,5 @@
 import 'package:book/Features/home/data/model/book_model/book_model.dart';
+import 'package:book/core/fonction/lunch_Url.dart';
 import 'package:book/core/utile/customer_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,12 +28,9 @@ class BookActions extends StatelessWidget {
           Expanded(
             child: CustomerButton(
               onPressed: () async {
-                Uri url = Uri.parse(books.volumeInfo.previewLink.toString());
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url);
-                } else {}
+                geturl(context, books.volumeInfo.previewLink.toString());
               },
-              title: ' Premiem',
+              title: getText(books),
               color: Colors.red,
               textcolor: Colors.white,
               border: BorderRadius.only(
@@ -44,5 +42,13 @@ class BookActions extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String getText(BookModel books) {
+    if (books.volumeInfo.previewLink == null) {
+      return 'Not Disponible';
+    } else {
+      return 'Disponible';
+    }
   }
 }

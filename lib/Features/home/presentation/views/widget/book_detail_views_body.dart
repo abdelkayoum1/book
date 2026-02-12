@@ -56,11 +56,14 @@ class BookDetailViewsBody extends StatelessWidget {
                   children: [
                     Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
                     SizedBox(width: 6.3),
-                    Text('${4.8} ', style: Styles.textStyle16),
-
-                    SizedBox(height: 5),
                     Text(
-                      ' (2390)',
+                      books.volumeInfo.averageRating.toString(),
+                      style: Styles.textStyle16,
+                    ),
+
+                    SizedBox(width: 5),
+                    Text(
+                      books.volumeInfo.ratingsCount.toString(),
                       style: Styles.textStyle14.copyWith(
                         color: Color(0xff707070),
                       ),
@@ -68,7 +71,7 @@ class BookDetailViewsBody extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10),
-                BookActions(),
+                BookActions(books: books),
                 SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),

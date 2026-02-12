@@ -1,9 +1,11 @@
+import 'package:book/Features/home/data/model/book_model/book_model.dart';
 import 'package:book/core/utile/customer_button.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookActions extends StatelessWidget {
-  const BookActions({super.key});
-
+  const BookActions({super.key, required this.books});
+  final BookModel books;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,7 +14,7 @@ class BookActions extends StatelessWidget {
         children: [
           Expanded(
             child: CustomerButton(
-              title: '19.99',
+              title: 'Free',
               textcolor: Colors.black,
               color: Colors.white,
               border: BorderRadius.only(
@@ -24,7 +26,13 @@ class BookActions extends StatelessWidget {
 
           Expanded(
             child: CustomerButton(
-              title: 'Free Premiem',
+              onPressed: () async {
+                Uri url = Uri.parse(books.volumeInfo.previewLink.toString());
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                } else {}
+              },
+              title: ' Premiem',
               color: Colors.red,
               textcolor: Colors.white,
               border: BorderRadius.only(

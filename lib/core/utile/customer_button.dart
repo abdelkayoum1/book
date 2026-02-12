@@ -9,16 +9,19 @@ class CustomerButton extends StatelessWidget {
     required this.color,
     required this.textcolor,
     required this.title,
+    this.onPressed,
   });
   final Color color, textcolor;
   final BorderRadius border;
   final String title;
+  final void Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           title,
           style: Styles.textStyle18.copyWith(color: textcolor),

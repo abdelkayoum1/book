@@ -102,7 +102,7 @@ class BestsallerListItem extends StatelessWidget {
 
                         SizedBox(width: 5),
                         Text(
-                          books.volumeInfo.pageCount.toString(),
+                          books.volumeInfo.ratingsCount.toString(),
                           style: Styles.textStyle14.copyWith(
                             color: Color(0xff707070),
                           ),

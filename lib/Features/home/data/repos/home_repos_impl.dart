@@ -39,7 +39,7 @@ class HomeReposImpl implements HomeRepos {
     try {
       // var data = await apiService.get(url: 'volumes?q=subject:Programming');
       var data = await apiService.get(
-        url: 'volumes?filter=free-ebooks&q=computer science',
+        url: 'volumes?filter=free-ebooks&q=Programming',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -66,13 +66,37 @@ class HomeReposImpl implements HomeRepos {
     try {
       // var data = await apiService.get(url: 'volumes?q=subject:Programming');
       var data = await apiService.get(
-        url: 'volumes?filter=free-ebooks&sorting=relevance&q=Programming',
+        url: 'volumes?filter=free-ebooks&sorting=relevance&q=Flutter',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
         try {
           print(item);
           print(data['item']);
+          books.add(BookModel.fromJson(item));
+        } catch (e) {}
+      }
+      return Right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(FailureServer.fromDioError(e));
+      }
+      return Left(FailureServer(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> searchbook({
+    required String value,
+  }) async {
+    try {
+      // var data = await apiService.get(url: 'volumes?q=subject:Programming');
+      var data = await apiService.get(
+        url: 'volumes?filter=free-ebooks&sorting=relevance&q=$value',
+      );
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        try {
           books.add(BookModel.fromJson(item));
         } catch (e) {}
       }

@@ -14,7 +14,7 @@ class BasetsallerListViews extends StatelessWidget {
         if (state is FeatureNewsetBooksucces) {
           return ListView.builder(
             // shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            //physics: NeverScrollableScrollPhysics(),
             // padding: EdgeInsets.zero,
             itemCount: state.books.length,
             itemBuilder: (context, index) {
@@ -25,7 +25,7 @@ class BasetsallerListViews extends StatelessWidget {
             },
           );
         } else if (state is FeatureNewsetBookfailure) {
-          return Center(child: Text('error'));
+          return Center(child: Text(state.errormessage));
         } else {
           return Center(child: CircularProgressIndicator());
         }

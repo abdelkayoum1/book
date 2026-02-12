@@ -1,11 +1,10 @@
 import 'package:book/Features/home/data/repos/home_repos_impl.dart';
 import 'package:book/Features/home/presentation/manager/feature_books_cubit/feature_books_cubit.dart';
 import 'package:book/Features/home/presentation/manager/feature_newset_book_cubit/feature_newset_book_cubit.dart';
-import 'package:book/core/utile/api_service.dart';
+
 import 'package:book/core/utile/app_route.dart';
 import 'package:book/constant.dart';
 import 'package:book/core/utile/service_locator.dart';
-import 'package:dio/dio.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

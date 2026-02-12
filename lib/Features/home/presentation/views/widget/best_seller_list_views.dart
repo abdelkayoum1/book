@@ -2,12 +2,13 @@ import 'package:book/Features/home/data/model/book_model/book_model.dart';
 import 'package:book/core/utile/app_route.dart';
 import 'package:book/core/utile/style.dart';
 import 'package:book/constant.dart';
-import 'package:book/constant_images.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
+// ignore: must_be_immutable
 class BestsallerListItem extends StatelessWidget {
   BestsallerListItem({super.key, required this.books});
   final BookModel books;

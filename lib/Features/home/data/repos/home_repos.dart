@@ -8,4 +8,6 @@ abstract class HomeRepos {
   Future<Either<Failure, List<BookModel>>> similairefetchdetail({
     required String category,
   });
+
+  Future<Either<Failure, List<BookModel>>> searchbook({required String value});
 }

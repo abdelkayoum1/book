@@ -1,5 +1,6 @@
 import 'package:book/Features/home/data/model/book_model/book_model.dart';
 import 'package:book/Features/home/data/repos/home_repos_impl.dart';
+import 'package:book/Features/home/presentation/manager/manager_bloc/bloc/search_bloc_bloc.dart';
 import 'package:book/Features/home/presentation/manager/search_cubit/search_cubit_cubit.dart';
 import 'package:book/Features/home/presentation/manager/similaire_cubit_detail/similaire_cubit_detail_cubit.dart';
 import 'package:book/Features/home/presentation/views/book_detail.dart';
@@ -32,7 +33,7 @@ abstract class AppRoute {
       GoRoute(
         path: ksearcgviewsappbarbook,
         builder: (context, state) => BlocProvider(
-          create: (context) => SearchCubitCubit(getit.get<HomeReposImpl>()),
+          create: (context) => SearchBlocBloc(getit.get<HomeReposImpl>()),
           child: SearchViews(),
         ),
       ),

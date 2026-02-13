@@ -1,3 +1,4 @@
+import 'package:book/Features/home/presentation/manager/manager_bloc/bloc/search_bloc_bloc.dart';
 import 'package:book/Features/home/presentation/manager/search_cubit/search_cubit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,7 @@ class CostomersearchviewsText extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       onSubmitted: (value) {
-        BlocProvider.of<SearchCubitCubit>(context).searchbook(value: value);
+        BlocProvider.of<SearchBlocBloc>(context).add(Searchbook(value: value));
       },
       decoration: InputDecoration(
         suffixIcon: IconButton(

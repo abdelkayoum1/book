@@ -1,3 +1,4 @@
+import 'package:book/Features/home/presentation/manager/manager_bloc/bloc/search_bloc_bloc.dart';
 import 'package:book/Features/home/presentation/manager/search_cubit/search_cubit_cubit.dart';
 
 import 'package:book/Features/home/presentation/views/widget/best_seller_list_views.dart';
@@ -20,9 +21,9 @@ class SearchViewsAppBarBook extends StatelessWidget {
           SizedBox(height: 6),
           Text('resultat', style: Styles.textStyle16),
           Expanded(
-            child: BlocBuilder<SearchCubitCubit, SearchCubitState>(
+            child: BlocBuilder<SearchBlocBloc, SearchBlocState>(
               builder: (context, state) {
-                if (state is SearchSucces) {
+                if (state is SearchSuccesbloc) {
                   return ListView.builder(
                     // shrinkWrap: true,
                     //physics: NeverScrollableScrollPhysics(),
@@ -35,7 +36,7 @@ class SearchViewsAppBarBook extends StatelessWidget {
                       );
                     },
                   );
-                } else if (state is SearchFailure) {
+                } else if (state is SearchFailurebloc) {
                   return Text(state.errormessage);
                 } else {
                   return Center(child: CircularProgressIndicator());

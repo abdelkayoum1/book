@@ -1,6 +1,7 @@
 import 'package:book/Features/home/data/model/book_model/book_model.dart';
 import 'package:book/Features/home/domaine/entities/book_entities.dart';
 import 'package:book/core/utile/api_service.dart';
+import 'package:hive/hive.dart';
 
 abstract class HomeRemotDataSource {
   Future<List<BookEntities>> fetchfeaturebooks();
@@ -22,6 +23,8 @@ class Homeremotdatasourceimpl extends HomeRemotDataSource {
     for (var booksentities in resu['items']) {
       list.add(BookModel.fromJson(booksentities));
       print(booksentities);
+      final book = Hive.box<BookEntities>('book_entities');
+      book.addAll(list);
     }
     return list;
   }
@@ -35,6 +38,8 @@ class Homeremotdatasourceimpl extends HomeRemotDataSource {
     for (var booksentities in resu['items']) {
       list.add(BookModel.fromJson(booksentities));
       print(booksentities);
+      var book = Hive.box<BookEntities>('book_entities');
+      book.addAll(list);
     }
     return list;
   }

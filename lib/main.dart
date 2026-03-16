@@ -22,7 +22,7 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(BookEntitiesAdapter());
-  Hive.box<BookEntities>('book_entities');
+  await Hive.openBox<BookEntities>('book_entities');
   // await Homeremotdatasourceimpl(ApiService(dio: Dio())).fetchfeaturebooks();
   runApp(const MyApp());
 }

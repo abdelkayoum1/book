@@ -11,7 +11,7 @@ class BookModel extends BookEntities {
   final String? id;
   final String? etag;
   final String? selfLink;
-  final VolumeInfo volumeInfo;
+  final VolumeInfo? volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
@@ -27,11 +27,11 @@ class BookModel extends BookEntities {
     this.searchInfo,
   }) : super(
          bookid: id.toString(),
-         image: volumeInfo.imageLinks.toString(),
-         title: volumeInfo.title.toString(),
-         auteur: volumeInfo.authors.toString(),
-         rating: volumeInfo.averageRating,
-         price: volumeInfo.ratingsCount,
+         image: volumeInfo?.imageLinks.toString() ?? '',
+         title: volumeInfo?.title.toString() ?? '',
+         auteur: volumeInfo?.authors.toString() ?? '',
+         rating: volumeInfo!.averageRating,
+         price: 0.0,
        );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
@@ -56,7 +56,7 @@ class BookModel extends BookEntities {
     'id': id,
     'etag': etag,
     'selfLink': selfLink,
-    'volumeInfo': volumeInfo.toJson(),
+    'volumeInfo': volumeInfo?.toJson(),
     'saleInfo': saleInfo?.toJson(),
     'accessInfo': accessInfo?.toJson(),
     'searchInfo': searchInfo?.toJson(),

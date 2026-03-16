@@ -36,7 +36,11 @@ class _FeatureBookListViewsState extends State<FeatureBookListViews> {
                     },
                     child: CusomterDetailListViewsImage(
                       image:
-                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                          state
+                              .books[index]
+                              .volumeInfo!
+                              .imageLinks
+                              ?.thumbnail ??
                           '',
                     ),
                   ),

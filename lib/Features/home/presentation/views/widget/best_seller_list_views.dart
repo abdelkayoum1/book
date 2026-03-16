@@ -32,7 +32,7 @@ class BestsallerListItem extends StatelessWidget {
                 errorWidget: (context, url, error) => Icon(Icons.error),
                 fit: BoxFit.fill,
                 imageUrl:
-                    books.volumeInfo.imageLinks?.thumbnail.toString() ?? '',
+                    books.volumeInfo!.imageLinks?.thumbnail.toString() ?? '',
               ),
             ),
           ),
@@ -45,7 +45,7 @@ class BestsallerListItem extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .5,
                   //  height: MediaQuery.of(context).size.height,
                   child: Text(
-                    books.volumeInfo.title.toString(),
+                    books.volumeInfo!.title.toString(),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
 
@@ -79,7 +79,7 @@ class BestsallerListItem extends StatelessWidget {
                 ),
                 */
                 Text(
-                  books.volumeInfo.authors?.first ?? 'unknow',
+                  books.volumeInfo!.authors?.first ?? 'unknow',
                   style: Styles.textStyle14,
                 ),
                 Row(
@@ -97,13 +97,13 @@ class BestsallerListItem extends StatelessWidget {
                         Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
                         SizedBox(width: 6.3),
                         Text(
-                          (books.volumeInfo.averageRating.toString()),
+                          (books.volumeInfo!.averageRating.toString()),
                           style: Styles.textStyle16,
                         ),
 
                         SizedBox(width: 5),
                         Text(
-                          books.volumeInfo.ratingsCount.toString(),
+                          books.volumeInfo!.ratingsCount.toString(),
                           style: Styles.textStyle14.copyWith(
                             color: Color(0xff707070),
                           ),

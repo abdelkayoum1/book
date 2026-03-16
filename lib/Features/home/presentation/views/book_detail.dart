@@ -19,7 +19,7 @@ class _BookDetailState extends State<BookDetail> {
     print('suuces');
     BlocProvider.of<SimilaireCubitDetailCubit>(
       context,
-    ).fetchsimilairedetail(category: widget.books.volumeInfo.categories![0]);
+    ).fetchsimilairedetail(category: widget.books.volumeInfo!.categories![0]);
 
     //.fetchsimilairedetail(category: widget.books.volumeInfo.categories!.first);
     super.initState();

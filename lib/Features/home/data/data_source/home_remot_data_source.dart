@@ -27,8 +27,15 @@ class Homeremotdatasourceimpl extends HomeRemotDataSource {
   }
 
   @override
-  Future<List<BookEntities>> fetchfeaturebooks() {
-    // TODO: implement fetchfeaturebooks
-    throw UnimplementedError();
+  Future<List<BookEntities>> fetchfeaturebooks() async {
+    var resu = await apiservice.get(
+      url: 'volumes?filter=free-ebooks&q=Programming&sorting=relevance',
+    );
+    List<BookEntities> list = [];
+    for (var booksentities in resu['items']) {
+      list.add(BookModel.fromJson(booksentities));
+      print(booksentities);
+    }
+    return list;
   }
 }

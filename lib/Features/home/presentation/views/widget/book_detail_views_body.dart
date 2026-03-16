@@ -35,18 +35,18 @@ class BookDetailViewsBody extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: width * .35),
 
                   child: CusomterDetailListViewsImage(
-                    image: books.volumeInfo.imageLinks?.thumbnail ?? '',
+                    image: books.volumeInfo!.imageLinks?.thumbnail ?? '',
                   ),
                 ),
                 SizedBox(height: 43),
                 Text(
-                  books.volumeInfo.title ?? '',
+                  books.volumeInfo!.title ?? '',
                   textAlign: TextAlign.center,
                   style: Styles.textStyle14,
                 ),
 
                 Text(
-                  books.volumeInfo.authors?.first ?? '',
+                  books.volumeInfo!.authors?.first ?? '',
                   textAlign: TextAlign.center,
                   style: Styles.textStyle14.copyWith(color: Color(0xff707070)),
                 ),
@@ -57,13 +57,13 @@ class BookDetailViewsBody extends StatelessWidget {
                     Icon(FontAwesomeIcons.solidStar, color: Colors.amber),
                     SizedBox(width: 6.3),
                     Text(
-                      books.volumeInfo.averageRating.toString(),
+                      books.volumeInfo!.averageRating.toString(),
                       style: Styles.textStyle16,
                     ),
 
                     SizedBox(width: 5),
                     Text(
-                      books.volumeInfo.ratingsCount.toString(),
+                      books.volumeInfo!.ratingsCount.toString(),
                       style: Styles.textStyle14.copyWith(
                         color: Color(0xff707070),
                       ),

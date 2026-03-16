@@ -28,7 +28,7 @@ class BookListViewsdetail__like extends StatelessWidget {
                   ),
                   child: CusomterDetailListViewsImage(
                     image:
-                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                        state.books[index].volumeInfo!.imageLinks?.thumbnail ??
                         '',
                   ),
                 );

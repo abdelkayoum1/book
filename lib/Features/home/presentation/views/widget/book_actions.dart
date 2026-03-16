@@ -27,7 +27,7 @@ class BookActions extends StatelessWidget {
           Expanded(
             child: CustomerButton(
               onPressed: () async {
-                geturl(context, books.volumeInfo.previewLink.toString());
+                geturl(context, books.volumeInfo!.previewLink.toString());
               },
               title: getText(books),
               color: Colors.red,
@@ -44,7 +44,7 @@ class BookActions extends StatelessWidget {
   }
 
   String getText(BookModel books) {
-    if (books.volumeInfo.previewLink == null) {
+    if (books.volumeInfo!.previewLink == null) {
       return 'Not Disponible';
     } else {
       return 'Disponible';

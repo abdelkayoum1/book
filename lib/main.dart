@@ -1,5 +1,6 @@
 import 'package:book/Features/home/data/data_source/home_remot_data_source.dart';
 import 'package:book/Features/home/data/repos/home_repos_impl.dart';
+import 'package:book/Features/home/domaine/entities/book_entities.dart';
 import 'package:book/Features/home/presentation/manager/feature_books_cubit/feature_books_cubit.dart';
 import 'package:book/Features/home/presentation/manager/feature_newset_book_cubit/feature_newset_book_cubit.dart';
 import 'package:book/core/utile/api_service.dart';
@@ -13,9 +14,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   setup();
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(BookEntitiesAdapter());
+  Hive.box<BookEntities>('book_entities');
   // await Homeremotdatasourceimpl(ApiService(dio: Dio())).fetchfeaturebooks();
   runApp(const MyApp());
 }

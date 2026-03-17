@@ -12,7 +12,7 @@ final class FeatureBooksInitial extends FeatureBooksState {}
 final class FeatureBooksLoading extends FeatureBooksState {}
 
 final class FeatureBooksSucces extends FeatureBooksState {
-  final List<BookModel> books;
+  final List<BookEntities> books;
 
   const FeatureBooksSucces(this.books);
 }

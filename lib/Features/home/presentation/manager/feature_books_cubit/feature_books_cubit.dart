@@ -1,18 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:book/Features/home/data/model/book_model/book_model.dart';
 import 'package:book/Features/home/data/repos/home_repos.dart';
+import 'package:book/Features/home/domaine/entities/book_entities.dart';
+import 'package:book/Features/home/domaine/use_cases/fetch_featurebooks.dart';
 import 'package:equatable/equatable.dart';
 
 part 'feature_books_state.dart';
 
 class FeatureBooksCubit extends Cubit<FeatureBooksState> {
-  FeatureBooksCubit(this.homerepo) : super(FeatureBooksInitial());
+  FeatureBooksCubit(this.fetchfeaturebooks) : super(FeatureBooksInitial());
 
-  final HomeRepos homerepo;
+  final FetchFeaturebooks fetchfeaturebooks;
 
   Future<void> fetchFeatureBooks() async {
     emit(FeatureBooksLoading());
-    var resultat = await homerepo.fetchFeatureBooks();
+    var resultat = await fetchfeaturebooks.call();
 
     resultat.fold(
       (failure) {
